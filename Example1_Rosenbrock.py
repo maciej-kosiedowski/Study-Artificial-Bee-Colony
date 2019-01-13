@@ -35,8 +35,8 @@ try:
 except:
     raise ImportError("Numpy module not installed.")
 
-from Hive import Utilities
-from Hive import Hive
+from Hive import utilities
+from Hive import hive
 
 
 # ---- CREATE TEST CASE
@@ -68,18 +68,18 @@ def run():
 
     # creates model
     ndim = int(2)
-    model = Hive.BeeHive(lower     = [0] *ndim ,
-                         upper     = [10]*ndim ,
-                         fun       = evaluator ,
-                         numb_bees =  10       ,
-                         max_itrs  =  50       ,
+    model = hive.BeeHive(lower     =[0] * ndim,
+                         upper     = [10]*ndim,
+                         fun       = evaluator,
+                         numb_bees =  10,
+                         max_itrs  =  50,
                          verbose=True)
 
     # runs model
     cost = model.run()
 
     # plots convergence
-    Utilities.ConvergencePlot(cost)
+    utilities.ConvergencePlot(cost)
 
     # prints out best solution
     print("Fitness Value ABC: {0}".format(model.best))

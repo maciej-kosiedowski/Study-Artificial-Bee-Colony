@@ -27,7 +27,7 @@ __doc__ = """
 Description:
 -----------
 
-SelectionMethods.py
+selection_methods.py
 
 Defines a collection of selection methods to be used with Hive.
 

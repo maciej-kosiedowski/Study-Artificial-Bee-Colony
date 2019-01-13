@@ -53,7 +53,7 @@ Dependencies:
 
 # import internal modules
 
-from Hive import Hive
+from Hive import hive
 
 # import external modules
 
@@ -191,12 +191,12 @@ def run():
 
     # creates model
     ndim = int(nb_polygons * (2 * nb_pts_per_polygon + nb_rgb))
-    model = Hive.BeeHive(lower     = [0]*ndim   ,
-                         upper     = [1]*ndim   ,
-                         fun       = evaluator  ,
-                         numb_bees = 20         ,
-                         max_itrs  = 1000       ,
-                         verbose   = True       ,)
+    model = hive.BeeHive(lower     =[0] * ndim,
+                         upper     = [1]*ndim,
+                         fun       = evaluator,
+                         numb_bees = 20,
+                         max_itrs  = 1000,
+                         verbose   = True, )
 
     # runs model
     model.run()
