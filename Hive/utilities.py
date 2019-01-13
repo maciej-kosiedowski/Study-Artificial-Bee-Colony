@@ -23,6 +23,23 @@ except:
 
 # ---- CONVERGENCE PLOT
 
+
+
+def better_plot(cost):
+    font = FontProperties();
+    font.set_size('larger');
+    labels = ["Best Cost Function", "Mean Cost Function"]
+    plt.figure(figsize=(12.5, 4));
+   # plt.plot(range(len(cost["best"])), cost["best"], label=labels[0]);
+    plt.plot(cost["solution"], color='red', label=labels[1]);
+    plt.xlabel("Iteration #");
+    plt.ylabel("Value [-]");
+    plt.legend(loc="best", prop=font);
+    plt.xlim([0, len(cost["mean"])]);
+    plt.grid();
+    plt.show();
+
+
 def ConvergencePlot(cost):
     """
 

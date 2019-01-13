@@ -122,7 +122,7 @@ class BeeHive(object):
     def run(self):
         """ Runs an Artificial Bee Colony (ABC) algorithm. """
 
-        cost = {}; cost["best"] = []; cost["mean"] = []
+        cost = {}; cost["best"] = []; cost["mean"] = []; cost["solution"] = []
         for itr in range(self.max_itrs):
 
             # employees phase
@@ -138,13 +138,14 @@ class BeeHive(object):
             # computes best path
             self.find_best()
 
-            print(self.population)
-            print(self.solution)
+            # print(self.population[0].counter)
+            # print(self.solution)
 
-            input()
+            # input()
 
             # stores convergence information
             cost["best"].append( self.best )
+            cost["solution"].append(self.solution)
             cost["mean"].append( sum( [ bee.value for bee in self.population ] ) / self.size )
 
             # prints out information about computation

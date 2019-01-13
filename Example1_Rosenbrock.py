@@ -73,13 +73,15 @@ def run():
                          fun       = evaluator,
                          numb_bees =  10,
                          max_itrs  =  50,
-                         verbose=True)
+                         verbose=False)
 
     # runs model
     cost = model.run()
 
     # plots convergence
-    utilities.ConvergencePlot(cost)
+    # utilities.ConvergencePlot(cost)
+    print(cost)
+    utilities.better_plot(cost)
 
     # prints out best solution
     print("Fitness Value ABC: {0}".format(model.best))
