@@ -1,45 +1,12 @@
 #!/usr/bin/env python
 
-# ---- SELECTION METHODS
-
 __all__ = ["tournament", "disruptive"]
 
-# ---- MODULE DOCSTRING
-
-__doc__ = """
-
-(C) Hive, Romain Wuilbercq, 2017
-     _
-    /_/_      .'''.
- =O(_)))) ...'     `.
-    \_\              `.    .'''X
-                       `..'
-.---.  .---..-./`) ,---.  ,---.   .-''-.
-|   |  |_ _|\ .-.')|   /  |   | .'_ _   \
-|   |  ( ' )/ `-' \|  |   |  .'/ ( ` )   '
-|   '-(_{;}_)`-'`"`|  | _ |  |. (_ o _)  |
-|      (_,_) .---. |  _( )_  ||  (_,_)___|
-| _ _--.   | |   | \ (_ o._) /'  \   .---.
-|( ' ) |   | |   |  \ (_,_) /  \  `-'    /
-(_{;}_)|   | |   |   \     /    \       /
-'(_,_) '---' '---'    `---`      `'-..-'
-
-Description:
------------
-
-selection_methods.py
-
-Defines a collection of selection methods to be used with Hive.
-
-"""
-
-# ---- IMPORT MODULES
 
 import random
 
 import numpy as np
 
-# ---- SELECTION METHOD(S)
 
 def tournament(values, crowd_size=None):
     """
@@ -105,5 +72,3 @@ def disruptive(values):
 
     # returns an array of normalized scores
     return scores / sum(scores)
-
-# ---- END

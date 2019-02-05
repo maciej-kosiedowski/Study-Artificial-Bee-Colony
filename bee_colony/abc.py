@@ -1,42 +1,19 @@
 #!/usr/bin/env python
 
-# ---- MODULE DOCSTRING
 
 __doc__ = """
-
-(C) Hive, Romain Wuilbercq, 2017
-     _
-    /_/_      .'''.
- =O(_)))) ...'     `.
-    \_\              `.    .'''X
-                       `..'
-.---.  .---..-./`) ,---.  ,---.   .-''-.
-|   |  |_ _|\ .-.')|   /  |   | .'_ _   \
-|   |  ( ' )/ `-' \|  |   |  .'/ ( ` )   '
-|   '-(_{;}_)`-'`"`|  | _ |  |. (_ o _)  |
-|      (_,_) .---. |  _( )_  ||  (_,_)___|
-| _ _--.   | |   | \ (_ o._) /'  \   .---.
-|( ' ) |   | |   |  \ (_,_) /  \  `-'    /
-(_{;}_)|   | |   |   \     /    \       /
-'(_,_) '---' '---'    `---`      `'-..-'
+Romain Wuilbercq, 2017 
+Maciej Kosiedowski 2019
 
 The Artificial Bee Colony (ABC) algorithm is based on the
 intelligent foraging behaviour of honey bee swarm, and was first proposed
 by Karaboga in 2005.
-
-Author:
-------
-
-Romain Wuilbercq
-
 """
 
-# ---- IMPORT MODULES
 
 import random
 import sys
 import copy
-
 
 # ---- BEE CLASS
 
@@ -97,7 +74,7 @@ class Bee(object):
         else:
             self.fitness = 1 + abs(self.value)
 
-class BeeHive(object):
+class BeeColony(object):
     """
 
     Creates an Artificial Bee Colony (ABC) algorithm.
@@ -122,7 +99,14 @@ class BeeHive(object):
     def run(self):
         """ Runs an Artificial Bee Colony (ABC) algorithm. """
 
-        cost = {}; cost["best"] = []; cost["mean"] = []; cost["solution"] = []
+        result = {}
+        result["best"] = []
+        result["mean"] = []
+        result["solution"] = []
+        result["all_population_func_x"] = []
+        result["all_population_func_y"] = []
+        result["all_population_func_value"] = []
+
         for itr in range(self.max_itrs):
 
             # employees phase
@@ -138,21 +122,23 @@ class BeeHive(object):
             # computes best path
             self.find_best()
 
-            # print(self.population[0].counter)
-            # print(self.solution)
+            [result["all_population_func_x"].append(bee.vector[0]) for bee in self.population]
+            [result["all_population_func_y"].append(bee.vector[1]) for bee in self.population]
+            [result["all_population_func_value"].append(5/(bee.value+0.001)) for bee in self.population]
 
-            # input()
 
             # stores convergence information
-            cost["best"].append( self.best )
-            cost["solution"].append(self.solution)
-            cost["mean"].append( sum( [ bee.value for bee in self.population ] ) / self.size )
+            result["best"].append( self.best )
+
+
+            result["solution"].append(self.solution)
+            result["mean"].append( sum( [ bee.value for bee in self.population ] ) / self.size )
 
             # prints out information about computation
             if self.verbose:
-                self._verbose(itr, cost)
+                self._verbose(itr, result)
 
-        return cost
+        return result
 
     def __init__(self                 ,
                  lower, upper         ,

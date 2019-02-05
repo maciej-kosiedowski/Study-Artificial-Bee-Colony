@@ -4,12 +4,11 @@
 from distutils.core import setup
 
 # ---- SETUP INFORMATION
-setup(name         = "Hive",
+setup(name         = "bee_colony",
       version      = "x.x.x",
       description  = "Artificial Bee Colony Algorithm",
       author       = "Romain Wuilbercq",
       author_email = "romain.wuilbercq@gmail.com",
-      url          = "https://github.com/rwuilbercq/Forest",
       keywords     = ["optimisation", "swarm", "stochastic", "global"],
       classifiers  = [
           "Programming Language :: Python",
@@ -19,22 +18,6 @@ setup(name         = "Hive",
           "Programming Language :: Python :: 3"
       ],
       long_description = """
-
-      (C) Hive, Romain Wuilbercq, 2017
-           _
-          /_/_      .'''.
-       =O(_)))) ...'     `.
-          \_\              `.    .'''X
-                             `..'
-      .---.  .---..-./`) ,---.  ,---.   .-''-.
-      |   |  |_ _|\ .-.')|   /  |   | .'_ _   \
-      |   |  ( ' )/ `-' \|  |   |  .'/ ( ` )   '
-      |   '-(_{;}_)`-'`"`|  | _ |  |. (_ o _)  |
-      |      (_,_) .---. |  _( )_  ||  (_,_)___|
-      | _ _--.   | |   | \ (_ o._) /'  \   .---.
-      |( ' ) |   | |   |  \ (_,_) /  \  `-'    /
-      (_{;}_)|   | |   |   \     /    \       /
-      '(_,_) '---' '---'    `---`      `'-..-'
 
       The Artificial Bee Colony (ABC) algorithm is based on the
       intelligent foraging behaviour of honey bee swarm, and was first proposed
