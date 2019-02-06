@@ -63,12 +63,15 @@ def run():
                                       verbose=False)
 
                 results = model.run()
-                if not os.path.exists(func):
-                    os.makedirs(func)
+                if not os.path.exists('results'):
+                    os.makedirs('results')
+
+                if not os.path.exists(os.path.join('results', func)):
+                    os.makedirs(os.path.join('results', func))
 
                 res_name = func+"_bee_"+str(bee)+"_low_limit_"+str(lower_limit[i])+"_up_limit_"+str(lower_limit[i])
                 print("Fitness for {3}  ABC: {0} in x,y ({1},{2}) ".format(model.best, model.solution[0], model.solution[1], res_name ) )
-                res_name = os.path.join(func, res_name)
+                res_name = os.path.join('results', func, res_name)
                 utilities.plot(results, res_name)
 
 
