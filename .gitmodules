@@ -1,0 +1,4 @@
+[submodule "apt_projekt"]
+	path = apt_projekt
+	url = https://github.com/slimak12/apt_projekt.git
+	branch=master
